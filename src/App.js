@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import Navbar from './components/Navbar';
+import StarWarsPeoplePage from './views/StarWarsPeoplePage';
+import StarWarsPlanetsPage from './views/StarWarsPlanetsPage';
+import Main from './views/Main';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+import {Router} from '@reach/router'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Router>
+        <Main path="/" />
+        <StarWarsPeoplePage path="/people/:obj" />
+        <StarWarsPlanetsPage path="/planets/:obj" />
+      </Router>
+      <p>This is the Star Wars API.</p>
+
     </div>
   );
 }
